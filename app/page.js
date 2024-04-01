@@ -3,11 +3,12 @@
 
 "use client";
 import React from "react";
-import { NotificationsNone } from "@mui/icons-material";
 import NavigationBar from "./Components/NavBar";
 import { Box } from "@mui/material";
 import { toast } from "react-toastify";
 import { motion } from "framer-motion";
+import { NotificationsNone } from '@mui/icons-material';
+
 
 const concentricCircles = (count) => {
   return Array.from({ length: count }, (_, i) => (
