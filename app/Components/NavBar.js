@@ -1,21 +1,58 @@
 import React from "react";
-import { Box, Flex, Text, IconButton } from "@chakra-ui/react";
-import { SiBatteryFull, SiCellularAlt, SiWifi } from "react-icons/si"; // Icons from react-icons
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import IconButton from "@material-ui/core/IconButton";
+import { makeStyles } from "@material-ui/core/styles";
+import BatteryFullIcon from "@material-ui/icons/BatteryFull";
+import SignalCellularAltIcon from "@material-ui/icons/SignalCellularAlt";
+import WifiIcon from "@material-ui/icons/Wifi";
+// Add more Material UI icons as needed
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 0.5,
+    width: "30%",
+  },
+  title: {
+    flexGrow: 1,
+    textAlign: "left",
+  },
+  appBar: {
+    backgroundColor: "#000", // Adjust the color to match the image
+  },
+  iconButton: {
+    color: "#fff", // Adjust the color to match the image
+  },
+}));
 
 const NavigationBar = () => {
+  const classes = useStyles();
+
   return (
-    <Box bg="#000" w="30%" p={4}>
-      <Flex justifyContent="space-between" alignItems="center">
-        <Text fontSize="xl" color="white">
-          11:17
-        </Text>
-        <Flex gap={4}>
-          <IconButton icon={<SiCellularAlt />} color="white" />
-          <IconButton icon={<SiWifi />} color="white" />
-          <IconButton icon={<SiBatteryFull />} color="white" />
-        </Flex>
-      </Flex>
-    </Box>
+    <div className={classes.root}>
+      <AppBar position="static" className={classes.appBar}>
+        <Toolbar>
+          {/* Add your icon here */}
+          <Typography variant="h6" className={classes.title}>
+            11:17
+          </Typography>
+          <div>
+            {/* Adjust icon buttons accordingly */}
+            <IconButton edge="end" className={classes.iconButton}>
+              <SignalCellularAltIcon />
+            </IconButton>
+            <IconButton edge="end" className={classes.iconButton}>
+              <WifiIcon />
+            </IconButton>
+            <IconButton edge="end" className={classes.iconButton}>
+              <BatteryFullIcon />
+            </IconButton>
+            {/* Add other action icons here if necessary */}
+          </div>
+        </Toolbar>
+      </AppBar>
+    </div>
   );
 };
 
